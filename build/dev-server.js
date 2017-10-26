@@ -24,12 +24,16 @@ const proxyTable = config.dev.proxyTable
 const app = express();
 
 /*mock数据*/
+/*
+
 const router =  express.Router();
 const goodData = require('../src/mock/goods.json');
 router.get('/goods',function (req,res,next) {
     res.json(goodData);
 });
 app.use(router);
+
+*/
 
 
 const compiler = webpack(webpackConfig)

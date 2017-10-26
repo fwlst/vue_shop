@@ -10,12 +10,9 @@
             <div class="filter-nav">
                 <span class="sortby">排序:</span>
                 <a href="javascript:void(0)" class="default cur">默认</a>
-                <a href="javascript:void(0)" class="price sort-up">价格
-                    <svg class="icon icon-arrow-short" id="icon-arrow-short" viewBox="0 0 25 32" width="100%"
-                         height="100%"><title>arrow-short</title>
-                        <path
-                            d="M24.487 18.922l-1.948-1.948-8.904 8.904v-25.878h-2.783v25.878l-8.904-8.904-1.948 1.948 12.243 12.243z"
-                            class="path1"></path>
+                <a href="javascript:void(0)" class="price sort-up" @click="priceSort">价格
+                    <svg class="icon icon-arrow-short" id="icon-arrow-short" viewBox="0 0 25 32" width="100%" height="100%"><title>arrow-short</title>
+                        <path d="M24.487 18.922l-1.948-1.948-8.904 8.904v-25.878h-2.783v25.878l-8.904-8.904-1.948 1.948 12.243 12.243z" class="path1"></path>
                     </svg>
                 </a>
             </div>
@@ -34,12 +31,12 @@
                 <ul class="good_list_ul">
                     <li class="list_item" v-for="(item,index) in goodList" :key="index">
                         <div class="pic">
-                            <img :src="'static/img/'+item.prodcutImg"/>
+                            <img v-lazy="'static/img/'+item.productImg"/>
                         </div>
                         <div class="good_info">
-                            <div class="name">{{item.prodcutName}}</div>
-                            <div class="price">{{item.prodcutPrice}}</div>
-                            <div class="btn_area">加入购物车</div>
+                            <div class="name">{{item.productName}}</div>
+                            <div class="price">{{item.productPrice}}</div>
+                            <div class="btn_area" @click="addCart(item.productId)">加入购物车</div>
                         </div>
                     </li>
                 </ul>
@@ -78,14 +75,12 @@
                     {
                         startPrice: '1000.00',
                         endPrice: '5000.00'
-                    },
-                    {
-                        startPrice: '5000.00',
-                        endPrice: '10000.00'
                     }
                 ],
                 priceChecked: 'all',
-                page: 1
+                page: 1,
+                pageSize: 8,
+                sort: 1
             }
         },
         mounted() {
@@ -94,16 +89,53 @@
         },
         methods: {
             getGoodList() {
-                axios.get('/goods').then((res) => {
-                    let goodList = res.data.data;
-                    this.goodList = goodList;
+                let priceLevel = 'all';
+                if(this.priceChecked != 'all'){
+                    priceLevel = this.priceFilter[this.priceChecked];
+                }
+                let param = {
+                    page:this.page,
+                    pageSize: this.pageSize,
+                    sort: this.sort,
+                    priceChecked: priceLevel
+                };
+                axios.get('/goods', {
+                    params: param
+                }).then((res) => {
+                    res = res.data;
+                    if (res.code == 200) {
+                        //let goodList = this.goodList.concat(res.data.goodList);
+                        let goodList = res.data.goodList;
+                        this.goodList = goodList;
+                    } else {
+                        console.log(res.msg);
+                    }
+
                 })
             },
             setPriceFilter(index) {
                 this.priceChecked = index;
                 this.page = 1;
-                this.getGoodsList();
+                this.getGoodList();
             },
+            priceSort(){
+                this.sort = this.sort == 1 ? -1 : 1;
+                console.log(this.sort);
+                this.getGoodList();
+            },
+            addCart(productId){
+                axios.post('/goods/addCart', {
+                    productId: productId
+                }).then((res) => {
+                    res = res.data;
+                    if (res.code == 200) {
+                        alert(res.data);
+                    } else {
+                        console.log(res.msg);
+                    }
+
+                })
+            }
         },
         components: {
             navHeader,

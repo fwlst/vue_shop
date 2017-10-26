@@ -2,53 +2,22 @@
     "status": "0",
     "msg": "请求成功",
     "data": [
-        {
-            "productId": "10001",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "mi6.jpg"
-        },
-        {
-            "productId": "10002",
-            "productName": "小米笔记本",
-            "prodcutPrice": "3999",
-            "prodcutImg": "note.jpg"
-        },
-        {
-            "productId": "10003",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "mi6.jpg"
-        },
-        {
-            "productId": "10004",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "1.jpg"
-        },
-        {
-            "productId": "10005",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "2.jpg"
-        },
-        {
-            "productId": "10006",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "3.jpg"
-        },
-        {
-            "productId": "10007",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "4.jpg"
-        },
-        {
-            "productId": "10008",
-            "productName": "小米6",
-            "prodcutPrice": "2499",
-            "prodcutImg": "5.jpg"
-        }
+        {"productId": "10001", "productName": "小钢炮蓝牙音箱", "productPrice": "129", "productImg": "1.jpg"},
+        {"productId": "10002", "productName": "小米蓝牙耳机", "productPrice": "99", "productImg": "2.jpg"},
+        {"productId": "10003", "productName": "EAR700", "productPrice": "799", "productImg": "3.jpg"},
+        {"productId": "10004", "productName": "EAR100", "productPrice": "1199", "productImg": "4.jpg"},
+        {"productId": "10005", "productName": "小米移动电源", "productPrice": "69", "productImg": "5.jpg"},
+        {"productId": "10006", "productName": "小米只能插线板", "productPrice": "39", "productImg": "6.jpg"},
+        {"productId": "10007", "productName": "EAR1000", "productPrice": "999", "productImg": "7.jpg"},
+        {"productId": "10008", "productName": "小米净水器", "productPrice": "1499", "productImg": "8.jpg"},
+        {"productId": "10009", "productName": "IH 电饭煲", "productPrice": "699", "productImg": "9.jpg"},
+        {"productId": "10010", "productName": "小米4A", "productPrice": "2399", "productImg": "10.jpg"},
+        {"productId": "10011", "productName": "EAR 600", "productPrice": "599", "productImg": "11.jpg"},
+        {"productId": "10012", "productName": "ear 10000", "productPrice": "2999", "productImg": "12.jpg"},
+        {"productId": "10013", "productName": "小米音响 黄色", "productPrice": "249", "productImg": "13.jpg"},
+        {"productId": "10014", "productName": "小米音响红色", "productPrice": "499", "productImg": "14.jpg"},
+        {"productId": "10015", "productName": "type-c 数据线", "productPrice": "49", "productImg": "15.jpg"},
+        {"productId": "10016", "productName": "EAR 800", "productPrice": "799", "productImg": "16.jpg"},
+        {"productId": "10017", "productName": "小米6", "productPrice": "2499", "productImg": "17.jpg"}
     ]
 }
